@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.RecipeMapper">
+  <resultMap id="BaseResultMap" type="pojo.Recipe">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="author" jdbcType="CHAR" property="author" />
+    <result column="censor" jdbcType="CHAR" property="censor" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="rating" jdbcType="VARCHAR" property="rating" />
+    <result column="browse" jdbcType="INTEGER" property="browse" />
+    <result column="complexity" jdbcType="VARCHAR" property="complexity" />
+    <result column="minute" jdbcType="INTEGER" property="minute" />
+    <result column="tasty" jdbcType="VARCHAR" property="tasty" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, author, censor, name, category, rating, browse, complexity, minute, tasty, method, 
+    description, address
+  </sql>
+  <select id="selectRecipeMaxId"
+		resultType="int">
+		select MAX(id) from recipe
+  </select>
+  <select id="selectByExample" parameterType="pojo.RecipeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from recipe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from recipe
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from recipe
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="pojo.RecipeExample">
+    delete from recipe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="pojo.Recipe" keyProperty="id"
+     keyColumn="id" useGeneratedKeys="true">
+    insert into recipe (id, author, censor, 
+      name, category, rating, 
+      browse, complexity, minute, 
+      tasty, method, description, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{author,jdbcType=CHAR}, #{censor,jdbcType=CHAR}, 
+      #{name,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{rating,jdbcType=VARCHAR}, 
+      #{browse,jdbcType=INTEGER}, #{complexity,jdbcType=VARCHAR}, #{minute,jdbcType=INTEGER}, 
+      #{tasty,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.Recipe" keyProperty="id"
+     keyColumn="id" useGeneratedKeys="true">
+    insert into recipe
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="censor != null">
+        censor,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="rating != null">
+        rating,
+      </if>
+      <if test="browse != null">
+        browse,
+      </if>
+      <if test="complexity != null">
+        complexity,
+      </if>
+      <if test="minute != null">
+        minute,
+      </if>
+      <if test="tasty != null">
+        tasty,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=CHAR},
+      </if>
+      <if test="censor != null">
+        #{censor,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null">
+        #{rating,jdbcType=VARCHAR},
+      </if>
+      <if test="browse != null">
+        #{browse,jdbcType=INTEGER},
+      </if>
+      <if test="complexity != null">
+        #{complexity,jdbcType=VARCHAR},
+      </if>
+      <if test="minute != null">
+        #{minute,jdbcType=INTEGER},
+      </if>
+      <if test="tasty != null">
+        #{tasty,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="pojo.RecipeExample" resultType="java.lang.Long">
+    select count(*) from recipe
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update recipe
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=CHAR},
+      </if>
+      <if test="record.censor != null">
+        censor = #{record.censor,jdbcType=CHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.category != null">
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rating != null">
+        rating = #{record.rating,jdbcType=VARCHAR},
+      </if>
+      <if test="record.browse != null">
+        browse = #{record.browse,jdbcType=INTEGER},
+      </if>
+      <if test="record.complexity != null">
+        complexity = #{record.complexity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.minute != null">
+        minute = #{record.minute,jdbcType=INTEGER},
+      </if>
+      <if test="record.tasty != null">
+        tasty = #{record.tasty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.method != null">
+        method = #{record.method,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update recipe
+    set id = #{record.id,jdbcType=INTEGER},
+      author = #{record.author,jdbcType=CHAR},
+      censor = #{record.censor,jdbcType=CHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      category = #{record.category,jdbcType=VARCHAR},
+      rating = #{record.rating,jdbcType=VARCHAR},
+      browse = #{record.browse,jdbcType=INTEGER},
+      complexity = #{record.complexity,jdbcType=VARCHAR},
+      minute = #{record.minute,jdbcType=INTEGER},
+      tasty = #{record.tasty,jdbcType=VARCHAR},
+      method = #{record.method,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.Recipe">
+    update recipe
+    <set>
+      <if test="author != null">
+        author = #{author,jdbcType=CHAR},
+      </if>
+      <if test="censor != null">
+        censor = #{censor,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null">
+        rating = #{rating,jdbcType=VARCHAR},
+      </if>
+      <if test="browse != null">
+        browse = #{browse,jdbcType=INTEGER},
+      </if>
+      <if test="complexity != null">
+        complexity = #{complexity,jdbcType=VARCHAR},
+      </if>
+      <if test="minute != null">
+        minute = #{minute,jdbcType=INTEGER},
+      </if>
+      <if test="tasty != null">
+        tasty = #{tasty,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.Recipe">
+    update recipe
+    set author = #{author,jdbcType=CHAR},
+      censor = #{censor,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      rating = #{rating,jdbcType=VARCHAR},
+      browse = #{browse,jdbcType=INTEGER},
+      complexity = #{complexity,jdbcType=VARCHAR},
+      minute = #{minute,jdbcType=INTEGER},
+      tasty = #{tasty,jdbcType=VARCHAR},
+      method = #{method,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
