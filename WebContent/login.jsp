@@ -36,7 +36,7 @@
 		function send(){
 			$.ajax({  
 				url: "sendMsg",  
-				type: "post",  
+				type: "get",  
 				dataType: "json",  
 				data: {'value': $("input[name='userId_2']").val()},
 			});  
@@ -191,10 +191,11 @@
 		  <!--注册-->
 		    <div class="qlogin" id="qlogin" style="display: none; ">
 		   
-		    <div class="web_login"><form  action="RegisterAct" name="form2" id="regUser" accept-charset="utf-8" method="post">
-			      <input type="hidden" name="to" value="reg"/>
-				      		       <input type="hidden" name="did" value="0"/>
-		        <ul class="reg_form" id="reg-ul">
+		    <div class="web_login">
+		    	<form  action="RegisterAct" name="form2" id="regUser" accept-charset="utf-8" method="post">
+			    	<input type="hidden" name="to" value="reg"/>
+				    <input type="hidden" name="did" value="0"/>
+		        	<ul class="reg_form" id="reg-ul">
 		        		<div id="userCue" class="cue">快速注册请注意格式</div>
 		                <li>
 		                    <label for="user"  class="input-tips2">手机号：</label>
@@ -202,20 +203,20 @@
 		                        <input type="text" id="user" name="userId_2" maxlength="16" class="inputstyle2"/>
 		                    </div>
 		                </li>
-										
-										<li>
-												<div class="inputArea">
-														<input type="button" onclick="send()" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="发送验证码"/> 
-												</div>
-												
-										</li><div class="cl"></div>
-										
-										<li>
-												<label for="user"  class="input-tips2">验证码：</label>
-												<div class="inputOuter2">
-														<input type="text" id="user" name="vali" maxlength="16" class="inputstyle2"/>
-												</div>
-										</li>
+							
+						<li>
+								<div class="inputArea">
+										<input type="button" onclick="send()" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="发送验证码"/> 
+								</div>
+								
+						</li><div class="cl"></div>
+						
+						<li>
+								<label for="user"  class="input-tips2">验证码：</label>
+								<div class="inputOuter2">
+										<input type="text" id="user" name="vali" maxlength="16" class="inputstyle2"/>
+								</div>
+						</li>
 		                
 		                <li>
 		                <label for="passwd" class="input-tips2">密码：</label>

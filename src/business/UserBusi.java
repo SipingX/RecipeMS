@@ -18,11 +18,19 @@ public class UserBusi {
 	public int login(User user) throws SQLException {
 		
 		String pass = "";
-		pass = userMapper.selectByPrimaryKey(user.getId()).getPassword();
-		if(pass.equals(user.getPassword())) {
-			return 1;
+		User user_2 = new User();
+		
+		user_2 = userMapper.selectByPrimaryKey(user.getId());
+		if(user_2 != null) {
+			pass = user_2.getPassword();
+			if(pass.equals(user.getPassword())) {
+				return 1;
+			}else {
+				return 0;
+			}
 		}else {
-			return 0;
+			System.out.println("该账号用户不存在！");
+			return 2;
 		}
 	}
 	

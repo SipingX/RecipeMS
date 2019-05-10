@@ -45,10 +45,10 @@ public class RegisterAct extends HttpServlet {
 		UserBusi userbusi = new UserBusi();
 		int rs = 0;
 		String html; 
-//		String vali = request.getParameter("vali");
+		String vali = request.getParameter("vali");
 		
-/*		if(vali.equals(request.getSession().getAttribute("valiNum"))){
-			System.out.println("号码验证通过！");*/
+		if(vali.equals(request.getSession().getAttribute("valiNum"))){
+			System.out.println("号码验证通过！");
 			
 			user.setId(request.getParameter("userId_2").trim());
 			user.setPassword(request.getParameter("userPsd").trim());
@@ -66,10 +66,10 @@ public class RegisterAct extends HttpServlet {
 				html="注册失败！<br><a href='login.jsp'>重新注册</a>";
 				response.getWriter().write(html);
 			}
-/*		}else{
+		}else{
 			html="号码验证失败！<br><a href='login.jsp'>返回注册</a>";
 			response.getWriter().write(html);
-		}*/
+		}
 	}
 
 }

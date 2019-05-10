@@ -61,8 +61,12 @@ public class LoginAct extends HttpServlet {
 			session.setAttribute("user", user);
 			
 			response.sendRedirect("index.jsp");
-		}else {
+		}else if(rs == 0){
 			response.sendRedirect("login.jsp");
+		}else {
+			String html;
+			html="该账号用户不存在！请前往<a href='login.jsp'>注册</a>";
+			response.getWriter().write(html);
 		}
 	}
 
