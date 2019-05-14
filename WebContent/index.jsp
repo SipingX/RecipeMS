@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="java.util.*,pojo.User,pojo.Recipe,pojo.RPicture,
-    	business.RecipeBusi"
+    import="java.util.*,pojo.User,pojo.Recipe,pojo.RPicture"
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -13,11 +12,6 @@
 	List<Recipe> recipes_rec = new ArrayList<Recipe>();
 	if(request.getAttribute("recipes_recommended") != null){
 		recipes_rec = (List<Recipe>)request.getAttribute("recipes_recommended");
-	}
-	
-	int pageNum = 0;
-	if(request.getAttribute("page") != null){
-		pageNum = (int)request.getAttribute("page");
 	}
 	
 	List<List<RPicture>> pictures_rec = new ArrayList<List<RPicture>>();
@@ -35,13 +29,15 @@
 		pictures_lat = (List<List<RPicture>>)request.getAttribute("pictures_latest");
 	}
 	
+	int pageNum = 0;
+	if(request.getAttribute("page") != null){
+		pageNum = (int)request.getAttribute("page");
+	}
+	
  	List<Recipe> recipes_page = new ArrayList<Recipe>();
 	if(request.getAttribute("recipes_page") != null){
 		recipes_page = (List<Recipe>)request.getAttribute("recipes_page");
 	}
-	
-	Iterator<Recipe> recipes_pageIterator = recipes_page.iterator();
-	Recipe recipePage = new Recipe();
 	
 	List<List<RPicture>> pictures_page = new ArrayList<List<RPicture>>();
 	if(request.getAttribute("pictures_page") != null){
@@ -471,9 +467,7 @@
 					%>
 
 					<%
-						int i = 0;
-						while(recipes_pageIterator.hasNext()){
-							recipePage = recipes_pageIterator.next();
+						for(int i = 0; i < recipes_page.size(); i++){
 					%>
  					<!-- Recipe #4 -->
 					<div class="four recipe-box columns">
@@ -505,7 +499,6 @@
 						</div>
 					</div>
 					<%
-							i++;
 						}
 					%>
 					
@@ -517,18 +510,15 @@
  					<nav class="pagination">
 						<ul>
 							<li>
-								<!-- <a href="#" class="current-page">1</a> -->
 								<c:choose>
 									<c:when test="${page-1==0 }"></c:when>
 									<c:otherwise><a href="InitIndex?page=${page-1 }">${page-1 }</a></c:otherwise>
 								</c:choose>
 							</li>
 							<li>
-								<!-- <a href="#">2</a> -->
 								<a href="InitIndex?page=${page }" class="current-page">${page }</a>						
 							</li>
 							<li>
-								<!-- <a href="#">3</a> -->
 								<c:choose>
 									<c:when test="${page==pagecount }"></c:when>
 									<c:otherwise><a href="InitIndex?page=${page+1 }">${page+1 }</a></c:otherwise>
@@ -540,14 +530,12 @@
 					<nav class="pagination-next-prev">
 						<ul>
 							<li>
-								<!-- <a href="#" class="prev"></a> -->
 								<c:choose>
 									<c:when test="${page==1 }"><a href="#" class="prev"></a></c:when>
 									<c:otherwise><a href="InitIndex?page=${page-1 }" class="prev"></a></c:otherwise>
 								</c:choose>
 							</li>
 							<li>
-								<!-- <a href="#" class="next"></a> -->
 								<c:choose>
 									<c:when test="${page==pagecount }"><a href="#" class="next"></a></c:when>
 									<c:otherwise><a href="InitIndex?page=${page+1 }" class="next"></a></c:otherwise>

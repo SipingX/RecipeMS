@@ -1,5 +1,6 @@
 package business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.github.pagehelper.PageHelper;
@@ -97,6 +98,19 @@ public class RecipeBusi {
 		PageInfo<Recipe> pageInfo = new PageInfo<Recipe>(recipes);
 		
 		return pageInfo;
+	}
+	
+	public List<Recipe> SearchRecipe(String keyword) {
+		
+		List<Recipe> RecipeList = new ArrayList<>();
+		RecipeExample example = new RecipeExample();
+		
+		RecipeExample.Criteria criteria = example.createCriteria();
+		keyword = "%" + keyword + "%";
+		criteria.andNameLike(keyword);
+		RecipeList = mapper.selectByExample(example);
+		
+		return RecipeList;
 	}
 
 }

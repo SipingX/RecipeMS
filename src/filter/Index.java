@@ -12,13 +12,13 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class Index
  */
-@WebFilter("/IndexPage")
-public class IndexPage implements Filter {
+@WebFilter("/Index")
+public class Index implements Filter {
 
     /**
      * Default constructor. 
      */
-    public IndexPage() {
+    public Index() {
         // TODO Auto-generated constructor stub
     }
 
@@ -27,7 +27,7 @@ public class IndexPage implements Filter {
 	 */
 	public void destroy() {
 		// TODO Auto-generated method stub
-		System.out.println("销毁过滤器：IndexPage");
+		System.out.println("销毁过滤器：Index");
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class IndexPage implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		request.getRequestDispatcher("InitIndex").forward(request, response);
-		System.out.println("IndexPage过滤器");
+		System.out.println("Index过滤器");
 
 		// pass the request along the filter chain
 //		chain.doFilter(request, response);
@@ -48,7 +48,7 @@ public class IndexPage implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("初始化过滤器：IndexPage");
+		System.out.println("初始化过滤器：Index");
 	}
 
 }
