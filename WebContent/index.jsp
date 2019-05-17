@@ -57,6 +57,11 @@
 ================================================== -->
 	<meta charset="utf-8">
 	<title>寻味环游记</title>
+ 	<script type="text/javascript">
+		function jumpToRecipe() {
+			window.location.href = "recipe.jsp";
+		}
+	</script>
 
 	<!-- Mobile Specific Metas
 ================================================== -->
@@ -555,11 +560,11 @@
 				<!-- Search Form -->
 				<div class="widget search-form">
 					<nav class="search">
-						<form action="#" method="get">
+						<form action="recipe.jsp" method="get">
 							<button>
 								<i class="fa fa-search"></i>
 							</button>
-							<input class="search-field" type="text" placeholder="寻味" value="" />
+							<input onfocus="jumpToRecipe()" class="search-field" type="text" placeholder="寻味" value="" />
 						</form>
 					</nav>
 					<div class="clearfix"></div>
@@ -567,7 +572,7 @@
 
 
 				<!-- Author Box -->
-				<div class="widget">
+<!-- 				<div class="widget">
 					<div class="author-box">
 						<span class="title">作者</span>
 						<span class="name">Sandra
@@ -579,7 +584,7 @@
 						<p>I'm Sandra and this is where I share my stuff. I am madly in love with food. You will find a balance of healthy recipes,
 							comfort food and indulgent desserts.</p>
 					</div>
-				</div>
+				</div> -->
 
 
 				<!-- Popular Recipes -->
@@ -589,11 +594,11 @@
 					<div class="clearfix"></div>
 
 					<!-- Recipe #1 -->
-					<a href="recipe-page-1.html" class="featured-recipe">
+					<a href="getRecipePageAct?recipeId=6" class="featured-recipe">
 						<img src="images/featuredRecipe-01.jpg" alt="">
 
 						<div class="featured-recipe-content">
-							<h4>绿茶奶油蛋糕 </h4>
+							<h4>巧克力冰淇淋蛋糕</h4>
 
 							<div class="rating five-stars">
 								<div class="star-rating"></div>
@@ -604,7 +609,7 @@
 					</a>
 
 					<!-- Recipe #2 -->
-					<a href="recipe-page-1.html" class="featured-recipe">
+					<a href="getRecipePageAct?recipeId=2" class="featured-recipe">
 						<img src="images/featuredRecipe-02.jpg" alt="">
 
 						<div class="featured-recipe-content">
@@ -619,11 +624,11 @@
 					</a>
 
 					<!-- Recipe #3 -->
-					<a href="recipe-page-1.html" class="featured-recipe">
+					<a href="getRecipePageAct?recipeId=8" class="featured-recipe">
 						<img src="images/featuredRecipe-03.jpg" alt="">
 
 						<div class="featured-recipe-content">
-							<h4>波拉沃与国产玉米饼</h4>
+							<h4>玉米鸡肉卷</h4>
 
 							<div class="rating five-stars">
 								<div class="star-rating"></div>
@@ -708,10 +713,10 @@
 
 				<ul class="footer-links">
 					<li>
-						<a href="recipes.html">浏览食谱</a>
+						<a href="recipe.jsp">浏览食谱</a>
 					</li>
 					<li>
-						<a href="submit-recipe.html">上传食谱</a>
+						<a href="recipe_submit.jsp">上传食谱</a>
 					</li>
 				</ul>
 

@@ -278,7 +278,7 @@
 		<nav class="search">
 			<form action="#" method="get">
 				<button><i class="fa fa-search"></i></button>
-				<input class="search-field" type="text" placeholder="Search for recipes" value=""/>
+				<input class="search-field" type="text" placeholder="Search for Material" value=""/>
 			</form>
 		</nav>
 		<div class="clearfix"></div>
@@ -373,10 +373,10 @@
 
 				<ul class="footer-links">
 					<li>
-						<a href="recipe.html">浏览食谱</a>
+						<a href="recipe.jsp">浏览食谱</a>
 					</li>
 					<li>
-						<a href="submit-recipe.html">上传食谱</a>
+						<a href="recipe_submit.jsp">上传食谱</a>
 					</li>
 				</ul>
 
