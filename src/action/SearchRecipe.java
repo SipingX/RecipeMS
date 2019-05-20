@@ -59,7 +59,7 @@ public class SearchRecipe extends HttpServlet {
 	        	int state = 1;	// 状态为1，表示请求搜索页面信息
 	            // 分页显示搜索结果
 	    		int page = 1;
-	    		int pagesize = 2;
+	    		int pagesize = 4;
 	    		int recordcount = 0;
 	    		int pagecount = 0;
 	    		

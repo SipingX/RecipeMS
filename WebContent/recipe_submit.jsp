@@ -71,6 +71,8 @@
 													"<option value='8'>芹菜</option>" +
 													"<option value='9'>娃娃菜</option>" +
 													"<option value='10'>西兰花</option>" +
+													"<option value='16'>西红柿</option>" +
+													"<option value='26'>鸡蛋</option>" +
 												"</select>" +
 //											"</div>" +
 										"</td>" +

@@ -15,9 +15,9 @@ public class RecipeBusi {
 	
 	RecipeMapper mapper = MybatisSpringUtil.getApplicationContext().getBean(RecipeMapper.class);
 	
-	public Recipe getRecipePageInfo(Recipe recipe) {
+	public Recipe getRecipePageInfoById(Integer id) {
 		
-		recipe = mapper.selectByPrimaryKey(recipe.getId());
+		Recipe recipe = mapper.selectByPrimaryKey(id);
 		
 		return recipe;
 	}

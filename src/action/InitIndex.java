@@ -49,10 +49,9 @@ public class InitIndex extends HttpServlet {
 		
 		for(int i=1;i<=5;i++) {
 			Recipe recipe = new Recipe();
-			recipe.setId(i);
-			recipe = recb.getRecipePageInfo(recipe);
-			recipes_rec.add(recipe);
+			recipe = recb.getRecipePageInfoById(i);
 			
+			recipes_rec.add(recipe);
 			pictures_rec.add(picb.getPictures(recipe));
 		}
 		
@@ -96,13 +95,16 @@ public class InitIndex extends HttpServlet {
 			List<List<RPicture>> pictures_lat = new ArrayList<List<RPicture>>();
 			int maxId = recb.getMaxId();
 			
-			for(int i=0;i<3;i++) {
+			int ii = 0;
+			for(int i=0;i<3;) {
 				Recipe recipe = new Recipe();
-				recipe.setId(maxId-i);
-				recipe = recb.getRecipePageInfo(recipe);
-				recipes_lat.add(recipe);
-				
-				pictures_lat.add(picb.getPictures(recipe));
+				recipe = recb.getRecipePageInfoById(maxId-ii);	
+				if(recipe != null) {
+					recipes_lat.add(recipe);
+					pictures_lat.add(picb.getPictures(recipe));
+					i++;
+				}
+				ii++;
 			}
 			
 			request.setAttribute("recipes_latest", recipes_lat);

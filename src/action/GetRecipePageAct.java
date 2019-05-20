@@ -42,8 +42,8 @@ public class GetRecipePageAct extends HttpServlet {
 		RecipeBusi recb = new RecipeBusi();
 		Recipe recipe = new Recipe();
 		recipe.setId(Integer.parseInt(request.getParameter("recipeId")));
-		System.out.println("请求食谱Id："+recipe.getId());
-		recipe = recb.getRecipePageInfo(recipe);
+//		System.out.println("请求食谱Id："+recipe.getId());
+		recipe = recb.getRecipePageInfoById(recipe.getId());
 		
 		IncludeBusi incb = new IncludeBusi();
 		Iterator<Include> include = incb.getInclude(recipe).iterator();

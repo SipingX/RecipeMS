@@ -243,7 +243,7 @@
 		<%
 			while (stepList.hasNext()) {
 				step = stepList.next();
-				System.out.println(step.getDescription());
+//				System.out.println(step.getDescription());
 		%>
 			<li><%= step.getDescription() %></li>
 		<%
