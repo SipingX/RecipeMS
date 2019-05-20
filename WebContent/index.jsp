@@ -166,199 +166,52 @@
 ================================================== -->
 
 		<div id="homeSlider" class="royalSlider rsDefaultInv">
-
+			
+			<% 
+				for(int i = 0; i < 5; i++){
+			%>	
 			<!-- Slide #1 -->
 			<div class="rsContent">
-				<a class="rsImg" href="<%= pictures_rec.get(0).get(1).getUrl() %>"></a>
-				<i class="rsTmb"><%= recipes_rec.get(0).getName() %></i>
+				<a class="rsImg" href="<%= pictures_rec.get(i).get(1).getUrl() %>"></a>
+				<i class="rsTmb"><%= recipes_rec.get(i).getName() %></i>
 
 				<!-- Slide Caption -->
 				<div class="SlideTitleContainer rsABlock">
 					<div class="CaptionAlignment">
 						<div class="rsSlideTitle tags">
 							<ul>
-								<li><%= recipes_rec.get(0).getCategory() %></li>
+								<li><%= recipes_rec.get(i).getCategory() %></li>
 							</ul>
 							<div class="clearfix"></div>
 						</div>
 
 						<h2 class="rsSlideTitle title">
-							<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(0).getId() %>"><%= recipes_rec.get(0).getName() %></a>
+							<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(i).getId() %>"><%= recipes_rec.get(i).getName() %></a>
 						</h2>
 
 						<div class="rsSlideTitle details">
 							<ul>
 								<li>
-									<i class="fa fa-cutlery"></i><%= recipes_rec.get(0).getComplexity() %></li>
+									<i class="fa fa-cutlery"></i><%= recipes_rec.get(i).getComplexity() %></li>
 								<li>
-									<i class="fa fa-clock-o"></i><%= recipes_rec.get(0).getMinute() %></li>
+									<i class="fa fa-clock-o"></i><%= recipes_rec.get(i).getMinute() %></li>
 								<li>
 									<i class="fa fa-user"></i> by
-									<a href="#"><%= recipes_rec.get(0).getAuthor() %></a>
+									<a href="#"><%= recipes_rec.get(i).getAuthor() %></a>
 								</li>
 							</ul>
 						</div>
 
-						<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(0).getId() %>" class="rsSlideTitle button">查看食谱</a>
+						<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(i).getId() %>" class="rsSlideTitle button">查看食谱</a>
 					</div>
 				</div>
 
 			</div>
-
-			<!-- Slide #2 -->
-			<div class="rsContent">
-				<a class="rsImg" href="<%= pictures_rec.get(1).get(1).getUrl() %>"></a>
-				<i class="rsTmb"><%= recipes_rec.get(1).getName() %></i>
-
-				<!-- Slide Caption -->
-				<div class="SlideTitleContainer rsABlock">
-					<div class="CaptionAlignment">
-						<div class="rsSlideTitle tags">
-							<ul>
-								<li><%= recipes_rec.get(1).getCategory() %></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-
-						<h2 class="rsSlideTitle title">
-							<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(1).getId() %>"><%= recipes_rec.get(1).getName() %></a>
-						</h2>
-
-						<div class="rsSlideTitle details">
-							<ul>
-								<li>
-									<i class="fa fa-cutlery"></i><%= recipes_rec.get(1).getComplexity() %></li>
-								<li>
-									<i class="fa fa-clock-o"></i><%= recipes_rec.get(1).getMinute() %></li>
-								<li>
-									<i class="fa fa-user"></i> by
-									<a href="#"><%= recipes_rec.get(1).getAuthor() %></a>
-								</li>
-							</ul>
-						</div>
-
-						<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(1).getId() %>" class="rsSlideTitle button">查看食谱</a>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- Slide #3 -->
-			<div class="rsContent">
-				<a class="rsImg" href="<%= pictures_rec.get(2).get(1).getUrl() %>"></a>
-				<i class="rsTmb"><%= recipes_rec.get(2).getName() %></i>
-
-				<!-- Slide Caption -->
-				<div class="SlideTitleContainer rsABlock">
-					<div class="CaptionAlignment">
-						<div class="rsSlideTitle tags">
-							<ul>
-								<li><%= recipes_rec.get(2).getCategory() %></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-
-						<h2 class="rsSlideTitle title">
-							<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(2).getId() %>"><%= recipes_rec.get(2).getName() %></a>
-						</h2>
-
-						<div class="rsSlideTitle details">
-							<ul>
-								<li>
-									<i class="fa fa-cutlery"></i><%= recipes_rec.get(2).getComplexity() %></li>
-								<li>
-									<i class="fa fa-clock-o"></i><%= recipes_rec.get(2).getMinute() %></li>
-								<li>
-									<i class="fa fa-user"></i> by
-									<a href="#"><%= recipes_rec.get(2).getAuthor() %></a>
-								</li>
-							</ul>
-						</div>
-
-						<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(2).getId() %>" class="rsSlideTitle button">查看食谱</a>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- Slide #4 -->
-			<div class="rsContent">
-				<a class="rsImg" href="<%= pictures_rec.get(3).get(1).getUrl() %>"></a>
-				<i class="rsTmb"><%= recipes_rec.get(3).getName() %></i>
-
-				<!-- Slide Caption -->
-				<div class="SlideTitleContainer rsABlock">
-					<div class="CaptionAlignment">
-						<div class="rsSlideTitle tags">
-							<ul>
-								<li><%= recipes_rec.get(3).getCategory() %></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-
-						<h2 class="rsSlideTitle title">
-							<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(3).getId() %>"><%= recipes_rec.get(3).getName() %></a>
-						</h2>
-
-						<div class="rsSlideTitle details">
-							<ul>
-								<li>
-									<i class="fa fa-cutlery"></i><%= recipes_rec.get(3).getComplexity() %></li>
-								<li>
-									<i class="fa fa-clock-o"></i><%= recipes_rec.get(3).getMinute() %></li>
-								<li>
-									<i class="fa fa-user"></i> by
-									<a href="#"><%= recipes_rec.get(3).getAuthor() %></a>
-								</li>
-							</ul>
-						</div>
-
-						<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(3).getId() %>" class="rsSlideTitle button">查看食谱</a>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- Slide #5 -->
-			<div class="rsContent">
-				<a class="rsImg" href="<%= pictures_rec.get(4).get(1).getUrl() %>"></a>
-				<i class="rsTmb"><%= recipes_rec.get(4).getName() %></i>
-
-				<!-- Slide Caption -->
-				<div class="SlideTitleContainer rsABlock">
-					<div class="CaptionAlignment">
-						<div class="rsSlideTitle tags">
-							<ul>
-								<li><%= recipes_rec.get(4).getCategory() %></li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-
-						<h2 class="rsSlideTitle title">
-							<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(4).getId() %>"><%= recipes_rec.get(4).getName() %></a>
-						</h2>
-
-						<div class="rsSlideTitle details">
-							<ul>
-								<li>
-									<i class="fa fa-cutlery"></i><%= recipes_rec.get(4).getComplexity() %></li>
-								<li>
-									<i class="fa fa-clock-o"></i><%= recipes_rec.get(4).getMinute() %></li>
-								<li>
-									<i class="fa fa-user"></i> by
-									<a href="#"><%= recipes_rec.get(4).getAuthor() %></a>
-								</li>
-							</ul>
-						</div>
-
-						<a href="getRecipePageAct?recipeId=<%= recipes_rec.get(4).getId() %>" class="rsSlideTitle button">查看食谱</a>
-					</div>
-				</div>
-
-			</div>
-
+			<%	
+				}
+			%>
+			
 		</div>
-
 
 
 		<!-- Content
