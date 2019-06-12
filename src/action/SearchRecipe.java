@@ -56,7 +56,7 @@ public class SearchRecipe extends HttpServlet {
 	        if(keyword == "" || keyword == null) {
 	        	request.getRequestDispatcher("InitRecipe").forward(request, response);
 	        }else {
-	        	int state = 1;	// 状态为1，表示请求搜索页面信息
+	        	int state = 1;	// 状态为1，表示请求食谱搜索页面信息（相对于请求食谱初始页面信息）
 	            // 分页显示搜索结果
 	    		int page = 1;
 	    		int pagesize = 4;

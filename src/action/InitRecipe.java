@@ -39,7 +39,7 @@ public class InitRecipe extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		int state = 0;	// 状态为0，表示请求初始页面信息
+		int state = 0;	// 状态为0，表示请求食谱初始页面（相对于请求食谱搜索页面信息）
 		
 		RecipeBusi recb = new RecipeBusi();
 		PictureBusi picb = new PictureBusi();

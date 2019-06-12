@@ -7,15 +7,11 @@ public class RTest {
 	@Test
 	public void test() {
 
-		for(int i = 0; i < 5; i++) {
-			System.out.println("i:" + i);
+	int page = 1;
+		if(!(page >= 1)){
+			page = 1;
 		}
-		for(int i = 0; i < 3; i++) {
-			System.out.println("i:" + i);
-		}
-//		int a = 0;
-//		int a = 1;
-		
+		System.out.println("page:" + page);
 	}
 
 }
